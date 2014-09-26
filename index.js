@@ -10,6 +10,7 @@ app.set('port', process.env.PORT || 3000);
 
 var domain = require('./lib/domain.js')(app); // set up a domain for the app
 
+app.use(express.static(__dirname + '/public')); // serve this content to the client without special handling (static)
 var middleware = require('./lib/middleware.js')(app, express); // app middleware in here
 
 // creating a switch to add environment specifics such as different logging in this case
