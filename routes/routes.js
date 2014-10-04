@@ -1,25 +1,22 @@
-module.exports = function (app) {
+exports.index = function (req, res) {
 
-    app.get('/', function (req, res) {
-
-        res.render('home', {
-            welcomeMessage: 'Welcome!'
-        });
-
-    });
-    
-    // custom 505 error
-    app.use(function (err, req, res, next) {
-        // pass in err to log the error to the console
-        console.error(err.stack);
-        res.status(500);
-        res.render('500');
+    res.render('home', {
+        welcomeMessage: 'Welcome!'
     });
 
-    app.use(function (req, res) {
-        res.status(404); // you have to explicitly set status to 404 otherwise express defaults to 200
-        res.render('404');
+};
 
-    });
+exports.error500 = function (err, req, res, next) {
+    // pass in err to log the error to the console
+    console.error(err.stack);
+    res.status(500);
+    res.render('500');
+
+};
+
+exports.error404 = function (req, res) {
+    // you have to explicitly set status to 404 otherwise express defaults to 200
+    res.status(404);
+    res.render('404');
 
 };
