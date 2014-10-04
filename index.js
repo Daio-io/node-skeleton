@@ -2,6 +2,7 @@ var express = require('express');
 var http = require('http');
 var credentials = require('./lib/credentials.js');
 var app = express();
+var routes = require('./routes/routes.js'); // add app routes here
 
 var viewEngine = require('./lib/view_engine.js')(app); // set the view engine in here
 
@@ -27,9 +28,15 @@ case 'production':
     break;
 }
 
-// var database = require('./lib/database_connection.js')(app, credentials); - uncomment this once you have added connection string
+//** Routes **//
+app.get('/', routes.index);
+// redirect all others to the index
+app.get('*', routes.index);
+app.use(routes.error500);
+app.use(routes.error404);
 
-var routes = require('./routes/routes.js')(app); // add app routes here
+
+// var database = require('./lib/database_connection.js')(app, credentials); - uncomment this once you have added connection string
 
 function startServer() {
     http.createServer(app).listen(app.get('port'), function () {
@@ -50,7 +57,3 @@ if (require.main === module) {
     module.exports = startServer();
 
 }
-
-
-
-
