@@ -1,4 +1,5 @@
 var main = require('./handlers/main.js');
+var errors = require('./handlers/errors.js');
 
 module.exports = function (app) {
 
@@ -7,7 +8,7 @@ module.exports = function (app) {
     app.get('/page', main.anotherPage);
     // redirect all others to the index
     app.get('*', main.index);
-    app.use(main.error500);
-    app.use(main.error404);
+    app.use(errors.error500);
+    app.use(errors.error404);
 
 };
