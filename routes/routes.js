@@ -8,6 +8,7 @@ module.exports = function (app) {
     app.get('/page', main.anotherPage);
     // redirect all others to the index
     app.get('*', main.index);
+    // use these routes to server errors
     app.use(errors.error500);
     app.use(errors.error404);
 
