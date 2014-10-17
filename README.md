@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Daveloper87/node-skeleton.svg?branch=master)](https://travis-ci.org/Daveloper87/node-skeleton)
+
 node-skeleton
 =============
 
