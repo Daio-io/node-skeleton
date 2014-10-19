@@ -1,6 +1,7 @@
 {
     "name": "node-skeleton",
     "version": "0.0.0",
+    "repository": "git@github.com:Daveloper87/node-skeleton.git",
     "description": "",
     "main": "index.js",
     "author": "Daveloper87",
