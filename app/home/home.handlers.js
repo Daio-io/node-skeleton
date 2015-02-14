@@ -1,5 +1,7 @@
+'use strict';
+
 // Handlers files are used to group your routes logically
-// Require your handlers and add each route to the routes.js file
+// Require your handlers and add each route to the *.router.js file
 exports.index = function (req, res) {
 
     res.render('home', {
@@ -9,9 +11,9 @@ exports.index = function (req, res) {
 };
 
 exports.anotherPage = function(req, res) {
-  
+
     res.render('page', {
-       message: 'Yey!! another page!' 
+        message: 'Yey!! another page!'
     });
-    
+
 };

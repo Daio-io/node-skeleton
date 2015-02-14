@@ -1,4 +1,9 @@
+## IDE
+.idea
+
+## MAC
 *.DS_STORE
-# /lib/credentials.js uncomment this after clone
+
+## NODE
 node_modules
 npm-debug.log
